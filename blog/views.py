@@ -73,3 +73,7 @@ def post_delete(request, pk):
         'post': post
     }
     return render(request, 'blog/post_delete.html', context)
+
+@login_required
+def user_logout(request):
+    return render(request, 'login.html')

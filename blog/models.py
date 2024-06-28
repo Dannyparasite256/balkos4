@@ -9,6 +9,7 @@ class PostModel(models.Model):
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
+    image_url = models.URLField(max_length=2083)
 
     class Meta:
         ordering = ('-date_created',)
