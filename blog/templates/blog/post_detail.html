@@ -9,7 +9,8 @@
                 <div class="card-body">
                     <!-- Blog Image -->
                     <div class="image-container mb-3">
-                        <img class="img-fluid" src="{{ post.image_url }}" alt="img">
+                        <a href="{{ post.image_url }}"><img class="img-fluid" src="{{ post.image_url }}" alt="img">
+                        </a>
                     </div>
                     <!-- Blog Title and Date -->
                     <div class="post-details mb-3">
@@ -34,6 +35,8 @@
                             <p class="text-justify">
                             <div class="row">
                                 <div class="col-md-3">
+                                    <img class="img-thumbnail" src="{{ user.profilemodel.image.url }}" alt="profile-img">
+
                                     {{ comment.user.username }}:
                                 </div>
                                 <div class="col-md-9">

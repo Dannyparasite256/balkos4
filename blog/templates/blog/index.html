@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <img class="img-thumbnail" src="{{ post.image_url }}" alt="img">
+                            <a href="{% url 'blog-post-detail' post.id %}"><img class="img-thumbnail" src="{{ post.image_url }}" alt="img"></a>
                         </div>
                         <div class="col-md-8">
                             <small>{{ post.date_created }}</small>

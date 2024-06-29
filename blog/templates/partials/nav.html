@@ -1,33 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-primary bg-primary fixed-top">
-    <div class="container">
-        {% if request.user.is_authenticated %}
-        <a class="navbar-brand text-white" href="{% url 'blog-index' %}">Daniel Blog</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-white" href="{% url 'users-profile' %}">Profile <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{% url 'user_logout' %}">Logout</a>
-                </li>
-            </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>df</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary fixed-top">
+        <div class="container">
+            {% if request.user.is_authenticated %}
+            {% if user.is_authenticated %}
+            <a class="navbar-brand text-white" href="{% url 'blog-index' %}"> {{ user.username.upper }}'s Blog</a>
             {% else %}
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-white" href="{% url 'users-sign-up' %}">Sign Up <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{% url 'users-login' %}">Login</a>
-                </li>
-            </ul>
+            <p>Login please or register</p>
             {% endif %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="{% url 'users-profile' %}">Profile <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'user_logout' %}">Logout</a>
+                    </li>
+                </ul>
+                {% else %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="{% url 'users-sign-up' %}">Sign Up <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'users-login' %}">Login</a>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</body>
+</html>
